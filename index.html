@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Arnolds Word Press Game</title>
+</head>
+<body>
+
+<!--HTML Starts Here-->
+
+<h2>Guess What Letter I Am Thinking Of</h2>
+
+<!-- This is where results will input in the HTML using the id reference in the function-->
+<div>
+  <p>Win: <span id="win-text"></span></p>
+  <p>Losses: <span id="win-text"></span></p>
+  <p>Guesses Made: <span id="win-text"></span></p>
+  <p>Guesses Remaining: <span id="win-text"></span></p>
+</div>
+
+<!--HTML Ends Here -->
+
+<!--Java Script Starts Here-->
+
+<script type="text/javascript">
+
+/* global variables that will be referenced in onkeyup function and if, else if and else statements. */
+var wins = 0;
+var losses = 0;
+var guess;
+var guessLeft;
+
+
+/*this part of my function will recognize when I select action. */
+
+document.onkeyup = function(event) {
+    var guess = event.key;
+    
+}
+
+</script>
+
+<!--Java Script Ends Here-->
+
+    
+</body>
+</html>
