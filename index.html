@@ -46,7 +46,11 @@ document.onkeyup = function(event) {
     console.log(comGuess);
     document.getElementById("left-text").innerHTML = guessLeft;
 
-    if (userGuess !== comGuess && guessLeft >= 1) {
+    if (userGuess == 'string') {
+    console.log("test" + userGuess);
+    }
+
+    else if (userGuess !== comGuess && guessLeft >= 1) {
         document.getElementById("lose-text").innerHTML = losses;
         ++losses;
         document.getElementById("left-text").innerHTML = guessLeft;
@@ -62,6 +66,7 @@ document.onkeyup = function(event) {
         document.getElementById("win-text").innerHTML = '';
         document.getElementById("lose-text").innerHTML = '';
         document.getElementById("left-text").innerHTML = 20;
+        document.getElementById("guess-text").innerHTML = '';
     }
 };
 
