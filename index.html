@@ -34,15 +34,19 @@ var losses = 0;
 var guessLeft = 10;
 
 
-/*this part of my function will recognize when I select action. */
+/*this part of my function will recognize when I select action and also make a random selection from the computer.*/
 
 document.onkeyup = function(event) {
     var userGuess = event.key;
     document.getElementById("guess-text").innerHTML = event.key;
     console.log(event.key);
-    var comGuess = (Math.Floor(Math.random * comOptions.length));
+    var comGuess = comOptions[Math.floor(Math.random() * comOptions.length)];
     console.log(comGuess);
-}
+
+    if (userGuess !== comGuess) {
+        console.log("You just lost")
+    }
+};
 
 </script>
 
