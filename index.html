@@ -4,74 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Arnolds Word Press Game</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <title>THE AMAZING PYSCHIC GAME</title>
+
 </head>
 <body>
 
 <!--HTML Starts Here-->
+
+<h1>The Amazing Pyschic Game</h1>
+
+<img src="https://www.sunsigns.org/wp-content/uploads/2014/01/fortune-teller.jpg">
 
 <h2>Guess What Letter I Am Thinking Of</h2>
 
 <!-- This is where results will input in the HTML using the id reference in the function-->
 
 <div>
-  <p>Win: <span id="win-text"></span></p>
-  <p>Losses: <span id="lose-text"></span></p>
-  <p>Guesses Made: <span id="guess-text"></span></p>
-  <p>Guesses Remaining: <span id="left-text"></span></p>
+  <h3>Win: <span id="win-text"></span></h3>
+  <h3>Losses: <span id="lose-text"></span></h3>
+  <h3>Guesses Made: <span id="guess-text"></span></h3>
+  <h3>Guesses Remaining: <span id="left-text"></span></h3>
 </div>
 
 <!--HTML Ends Here -->
 
-<!--Java Script Starts Here-->
-
-<script type="text/javascript">
-
-/* global variables that will be referenced in onkeyup function and if, else if and else statements. */
-var comOptions = ["a", "b" , "c", "d", "e", "f", "g", "h", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var wins = 1;
-var losses = 1;
-var guessLeft = 20;
-
-/* This displays variable guessLeft on the web page. */
-document.getElementById("left-text").innerHTML = guessLeft;
-
-/*this part of my function will recognize when I select action and also make a random selection from the computer.*/
-
-document.onkeyup = function(event) {
-    var userGuess = event.key;
-    document.getElementById("guess-text").innerHTML = event.key;
-    console.log(event.key);
-    var comGuess = comOptions[Math.floor(Math.random() * comOptions.length)];
-    console.log(comGuess);
-    document.getElementById("left-text").innerHTML = guessLeft;
-
-    if (userGuess == 'string') {
-    console.log("test" + userGuess);
-    }
-
-    else if (userGuess !== comGuess && guessLeft >= 1) {
-        document.getElementById("lose-text").innerHTML = losses;
-        ++losses;
-        document.getElementById("left-text").innerHTML = guessLeft;
-        --guessLeft;
-    }
-
-    else if (userGuess === comGuess && guessLeft >= 1) {
-        document.getElementById("win-text").innerHTML = wins;
-        ++wins;
-    } 
-    
-    else {
-        document.getElementById("win-text").innerHTML = '';
-        document.getElementById("lose-text").innerHTML = '';
-        document.getElementById("left-text").innerHTML = 20;
-        document.getElementById("guess-text").innerHTML = '';
-    }
-};
-
-</script>
-
+<!--Java Script File -->
+<script src="assets/javascript/javascript.js"></script>
 <!--Java Script Ends Here-->
     
 </body>
