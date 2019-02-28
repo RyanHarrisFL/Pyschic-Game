@@ -16,7 +16,7 @@
 <div>
   <p>Win: <span id="win-text"></span></p>
   <p>Losses: <span id="win-text"></span></p>
-  <p>Guesses Made: <span id="win-text"></span></p>
+  <p>Guesses Made: <span id="guess-text"></span></p>
   <p>Guesses Remaining: <span id="win-text"></span></p>
 </div>
 
@@ -27,17 +27,21 @@
 <script type="text/javascript">
 
 /* global variables that will be referenced in onkeyup function and if, else if and else statements. */
+
+var comOptions = ["a", "b" , "c", "d", "e", "f", "g", "h", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var wins = 0;
 var losses = 0;
-var guess;
-var guessLeft;
+var guessLeft = 10;
 
 
 /*this part of my function will recognize when I select action. */
 
 document.onkeyup = function(event) {
-    var guess = event.key;
-    
+    var userGuess = event.key;
+    document.getElementById("guess-text").innerHTML = event.key;
+    console.log(event.key);
+    var comGuess = (Math.Floor(Math.random * comOptions.length));
+    console.log(comGuess);
 }
 
 </script>
