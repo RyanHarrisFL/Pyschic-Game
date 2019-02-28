@@ -13,11 +13,12 @@
 <h2>Guess What Letter I Am Thinking Of</h2>
 
 <!-- This is where results will input in the HTML using the id reference in the function-->
+
 <div>
   <p>Win: <span id="win-text"></span></p>
-  <p>Losses: <span id="win-text"></span></p>
+  <p>Losses: <span id="lose-text"></span></p>
   <p>Guesses Made: <span id="guess-text"></span></p>
-  <p>Guesses Remaining: <span id="win-text"></span></p>
+  <p>Guesses Remaining: <span id="left-text"></span></p>
 </div>
 
 <!--HTML Ends Here -->
@@ -29,10 +30,9 @@
 /* global variables that will be referenced in onkeyup function and if, else if and else statements. */
 
 var comOptions = ["a", "b" , "c", "d", "e", "f", "g", "h", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var wins = 0;
-var losses = 0;
+var wins = 1;
+var losses = 1;
 var guessLeft = 10;
-
 
 /*this part of my function will recognize when I select action and also make a random selection from the computer.*/
 
@@ -44,14 +44,19 @@ document.onkeyup = function(event) {
     console.log(comGuess);
 
     if (userGuess !== comGuess) {
-        console.log("You just lost")
+        document.getElementById("lose-text").innerHTML = losses;
+        ++losses;
+    }
+
+    if (userGuess === comGuess) {
+        document.getElementById("win-text").innerHTML = wins;
+        ++wins;
     }
 };
 
 </script>
 
 <!--Java Script Ends Here-->
-
     
 </body>
 </html>
