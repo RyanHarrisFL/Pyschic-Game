@@ -4,40 +4,39 @@
 var comOptions = ["a", "b" , "c", "d", "e", "f", "g", "h", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var wins = 1;
 var losses = 1;
-var guessLeft = 20;
+var guessLeft = 9;
+var userGuess = [];
+var comGuess = comOptions[Math.floor(Math.random() * comOptions.length + 1)];
 
-/* This displays variable guessLeft on the web page. */
-document.getElementById("left-text").innerHTML = guessLeft;
+/* This is the computer choice that was made */
+    document.getElementById("left-text").innerHTML = guessLeft;
+    console.log(comGuess + "TESTing Computer Guess");
 
 /*this part of my function will recognize when I select action and also make a random selection from the computer.*/
 document.onkeyup = function(event) {
+/* This is the user choice that was made */    
     var userGuess = event.key;
-    document.getElementById("guess-text").innerHTML = event.key;
     console.log(event.key);
-    var comGuess = comOptions[Math.floor(Math.random() * comOptions.length)];
-    console.log(comGuess);
-    document.getElementById("left-text").innerHTML = guessLeft;
 
-    if (userGuess !== comGuess && guessLeft >= 1) {
-        document.getElementById("lose-text").innerHTML = losses;
-        ++losses;
+/* This runs if the user choice was incorrect. It decrements the remaining guesses and pushes the list of guesses to the */
+    if (userGuess !== comGuess && guessLeft >= 0) {
         document.getElementById("left-text").innerHTML = guessLeft;
         --guessLeft;
+        /*userGuess.push(event.key);
+        document.getElementById("win-text").innerHTML = userGuess;*/
     }
 
-    else if (userGuess === comGuess && guessLeft) {
+    else if (userGuess === comGuess) {
         document.getElementById("win-text").innerHTML = wins;
         ++wins;
-        guessLeft = 20;
+        guessLeft = 9;
     } 
     
     else {
-        guessLeft = 20;
-        wins = 1;
-        losses = 1;
-        document.getElementById("win-text").innerHTML = '';
-        document.getElementById("lose-text").innerHTML = '';
-        document.getElementById("left-text").innerHTML = 20;
+        guessLeft = 9;
+        document.getElementById("lose-text").innerHTML = losses;
+        ++losses;
+        document.getElementById("left-text").innerHTML = 9;
         document.getElementById("guess-text").innerHTML = '';
     }
 };
